@@ -12,7 +12,7 @@ public class main {
 	
 		String arquivo = "C:/Users/usuario_2.UTEC-7314/Desktop/ADS-2/Estrutura de Dados/ERP_System/Products.csv";
 	
-		List<Product> lista = retornaLista.Lista();
+		List<produto> lista = retornaLista.Lista();
 		try (BufferedReader br = new BufferedReader(new FileReader(arquivo))) {
 			
 			String linha = br.readLine();
@@ -22,7 +22,7 @@ public class main {
 				int id = Integer.parseInt(vect[0]);
 				Double preço = Double.parseDouble(vect[2]);
 				String nome = vect[21];
-				Product prod = new Product(id, preço, nome);
+				produto prod = new produto(id, preço, nome);
 				lista.add(prod); 		//cria um produto com os dados do vetor e coloco na lista
 				
 				linha = br.readLine();
@@ -52,7 +52,7 @@ public class main {
 				System.out.print("\nDigite o ID do produto: ");
 				id = new Scanner(System.in).nextInt();
 				 
-					for (Product pro : lista) {
+					for (produto pro : lista) {
 						if(pro.getId() == id){
 							System.out.println(pro);
 							avancar = true;
