@@ -7,12 +7,12 @@ import java.util.ArrayList;
 public class retornaLista {
     public static List<produto> Lista() {
 		List<produto> lista = new ArrayList<produto>();
-		String arquivo = "C:/Users/usuario_2.UTEC-7314/Desktop/ADS-2/Estrutura de Dados/ERP_System/Products.csv";
+		String arquivo = "C:/Users/usuario_2.UTEC-7314/Desktop/ERP/ERP_System/Products.csv";
 		try (BufferedReader br = new BufferedReader(new FileReader(arquivo))) {
 			
 			String linha = br.readLine();
 			linha = br.readLine();
-			for(int i = 0; i <= 10; i++){
+			for(int i = 0; i <= 10; i++){	//alterar
 				String[] vect = linha.split(",");		 //separo o arquivo pelas virgulas colocando em vetor
 				int id = Integer.parseInt(vect[0]);
 				Double preço = Double.parseDouble(vect[2]);
