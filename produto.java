@@ -18,6 +18,10 @@ public class produto implements Serializable {
 		this.nome = nome;
 	}
 
+	public String getNome() {
+		return nome;
+	}
+
 	public int getId() {
 		return id;
 	}
