@@ -5,7 +5,7 @@ import java.util.InputMismatchException;
 public class main {
 	public static void main(String[] args) {
 
-		if (retornaLista.Lista().isEmpty()) { 	// carrega as info na lista caso contrarionao funciona
+		if (retornaLista.Lista().isEmpty()) { 	// carrega as info na lista caso contrario nao funciona
 			System.out.println("Lista Vazia");
 		} else {
 			System.out.println("\tBem vindo ao Gerenciador de Produtos Eletronicos");
@@ -30,7 +30,6 @@ public class main {
 						break;
 
 					case 3:
-
 						System.out.print("Aplicativo Encerrado.");
 						break;
 					default:
