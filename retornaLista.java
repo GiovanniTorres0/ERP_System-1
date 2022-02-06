@@ -12,7 +12,7 @@ public class retornaLista {
 		try (BufferedReader buf = new BufferedReader(new FileReader(arquivo))) {
 			String linha = buf.readLine();
 			linha = buf.readLine();
-			for(int i = 0; i <= 20; i++){	//alterar o tamanho
+			for(int i = 0; i <= 100; i++){	//alterar o tamanho
 				String[]produtos = linha.split(",");		 //separo o arquivo pelas virgulas colocando em vetor
 				int id = Integer.parseInt(produtos[0]);
 				Double preço = Double.parseDouble(produtos[2]);

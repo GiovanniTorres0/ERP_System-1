@@ -8,9 +8,6 @@ public class produto implements Serializable {
 	private Double preço;
 	private String nome;
 
-	public produto() {
-	}
-
 	public produto(int id, Double preço,String nome) {
 		super();
 		this.id = id;

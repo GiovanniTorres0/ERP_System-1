@@ -3,7 +3,6 @@ import java.util.Scanner;
 import java.util.InputMismatchException;
 
 public class main {
-
 	public static void main(String[] args) {
 
 		if (retornaLista.Lista().isEmpty()) { 	// carrega as info na lista caso contrarionao funciona
