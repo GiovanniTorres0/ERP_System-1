@@ -7,26 +7,25 @@ import java.util.ArrayList;
 public class retornaLista {
     public static List<produto> Lista() {
 		List<produto> lista = new ArrayList<produto>();
-		String arquivo = "C:/Users/usuario_2.UTEC-7314/Desktop/ERP/ERP_System/Products.csv";
-		try (BufferedReader br = new BufferedReader(new FileReader(arquivo))) {
-			
-			String linha = br.readLine();
-			linha = br.readLine();
-			for(int i = 0; i <= 10; i++){	//alterar
-				String[] vect = linha.split(",");		 //separo o arquivo pelas virgulas colocando em vetor
-				int id = Integer.parseInt(vect[0]);
-				Double preço = Double.parseDouble(vect[2]);
-				String nome = vect[21];
-				produto prod = new produto(id, preço, nome);
+		String arquivo = "C:/Users/usuario_2.UTEC-7314/Desktop/ERP/Products.csv";
+
+		try (BufferedReader buf = new BufferedReader(new FileReader(arquivo))) {
+			String linha = buf.readLine();
+			linha = buf.readLine();
+			for(int i = 0; i <= 20; i++){	//alterar o tamanho
+				String[]produtos = linha.split(",");		 //separo o arquivo pelas virgulas colocando em vetor
+				int id = Integer.parseInt(produtos[0]);
+				Double preço = Double.parseDouble(produtos[2]);
+				String nome =produtos[21];
+				produto prod = new produto(id, preço, nome); //passa como parementro as info do vetor pra classe
 				lista.add(prod); 		//cria um produto com os dados do vetor e coloco na lista
 				
-				linha = br.readLine();
+				linha = buf.readLine();
 			}	
 		}
 		catch (IOException e) {
-			System.out.println("Error: " + e.getMessage());
+			System.out.println("Erro: " + e.getMessage());
 		}
 			return lista;
-
-		}
+	}
 }
