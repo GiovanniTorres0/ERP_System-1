@@ -24,7 +24,7 @@ public class buscaPorId {
                     encontrado = true;
                 }
             }
-            if (encontrado == false) {                     // retorna mensagem caso nao ache o produto
+            if (!encontrado) {                              // retorna mensagem caso nao ache o produto
                 System.out.println("Produto não Encontrado!");
             }
         }
