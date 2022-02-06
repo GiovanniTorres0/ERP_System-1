@@ -1,6 +1,6 @@
 public class produto{
 
-	private int id;											//atributos do mesmo tipo que o dado do .csv
+	private int id;											//atributos do mesmo tipo que o dados do .csv
 	private Double preço;
 	private String nome;
 
