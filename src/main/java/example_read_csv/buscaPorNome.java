@@ -20,7 +20,7 @@ public class buscaPorNome {
                 }
             }
         }
-        if (!avancar ) {                                 //pq um if em vez de else na linha 19 ? porque cada vez que ele nao encontra ira imprimir
+        if (!avancar ) {                         //pq um if em vez de else na linha 19 ? porque cada vez que ele nao encontra ira imprimir
             System.out.println("Produto não Encontrado!");
         }
     }
