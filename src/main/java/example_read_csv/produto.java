@@ -1,7 +1,7 @@
 package example_read_csv;
 
 public class produto{
-
+//teste
 	private int id;											//atributos do mesmo tipo que o dados do .csv
 	private Double preço;
 	private String nome;
