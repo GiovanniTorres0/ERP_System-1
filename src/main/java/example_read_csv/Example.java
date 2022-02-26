@@ -1,28 +1,48 @@
 package example_read_csv;
 
-
-import com.opencsv.CSVReader;
-import com.opencsv.exceptions.CsvException;
-
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
-
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class Example {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
-        String fileName = "C:\\data\\Products.csv";
+        if (retornaLista.Lista().isEmpty()) { 	// carrega as info na lista caso contrario nao funciona
+            System.out.println("Lista Vazia");
+        } else {
+            System.out.println("\tBem vindo ao Gerenciador de Produtos Eletronicos");
+            int opcao = 0;
+            while (opcao != 3) {
+                System.out.println("\n1 - Buscar produto por código");
+                System.out.println("2 - Buscar produto por nome");
+                System.out.println("3- Sair");
+                System.out.print("Opção: ");
+                try {
+                    opcao = new Scanner(System.in).nextInt();
+                } catch (InputMismatchException m) {
+                    System.out.println("Utilize numeros!");
+                }
+                switch (opcao) {
+                    case 1:
+                        buscaPorId.ID();
+                        break;
 
-        try (CSVReader reader = new CSVReader(new FileReader(fileName))) {
-            List<String[]> r = reader.readAll();
-            r.forEach(x -> System.out.println(Arrays.toString(x)));
-        } catch (CsvException e) {
-            e.printStackTrace();
+                    case 2:
+                        buscaPorNome.Nome();
+                        break;
+
+                    case 3:
+                        System.out.print("Aplicativo Encerrado.");
+                        break;
+                    default:
+                        System.out.println("Opçao Invalida");
+                        break;
+                }
+            }
         }
     }
 }
+
+
 
 
