@@ -1,5 +1,7 @@
 package example_read_csv;
 
+import example_read_csv.modelo.produto;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;

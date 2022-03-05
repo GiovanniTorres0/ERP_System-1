@@ -1,5 +1,7 @@
 package example_read_csv;
 
+import example_read_csv.modelo.produto;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.InputMismatchException;
