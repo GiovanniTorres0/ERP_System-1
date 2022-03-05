@@ -1,4 +1,8 @@
-package example_read_csv;
+package example_read_csv.main;
+
+import example_read_csv.metodos.buscaPorId;
+import example_read_csv.metodos.buscaPorNome;
+import example_read_csv.metodos.retornaLista;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
