@@ -1,52 +1,30 @@
 package example_read_csv.main;
 
-import example_read_csv.metodos.buscaPorId;
-import example_read_csv.metodos.buscaPorNome;
-import example_read_csv.metodos.retornaLista;
-
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import example_read_csv.menu.Menu;
 
 public class Example {
 
     public static void main(String[] args) {
 
-        if (retornaLista.Lista().isEmpty()) { 	// carrega as info na lista caso contrario nao funciona
-            System.out.println("Lista Vazia");
-        } else {
-            System.out.println("\tBem vindo ao Gerenciador de Produtos Eletronicos");
-            int opcao = 0;
-            while (opcao != 3) {
-                System.out.println("\n1 - Buscar produto por código");
-                System.out.println("2 - Buscar produto por nome");
-                System.out.println("3- Sair");
-                System.out.print("Opção: ");
-                try {
-                    opcao = new Scanner(System.in).nextInt();
-                } catch (InputMismatchException m) {
-                    System.out.println("Utilize numeros!");
-                }
-                switch (opcao) {
-                    case 1:
-                        buscaPorId.ID();
-                        break;
+       Menu menu = new Menu();
 
-                    case 2:
-                        buscaPorNome.Nome();
-                        break;
+       menu.menu(1);
 
-                    case 3:
-                        System.out.print("Aplicativo Encerrado.");
-                        break;
-                    default:
-                        System.out.println("Opçao Invalida");
-                        break;
-                }
-            }
-        }
+
+
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
-
-
-
-

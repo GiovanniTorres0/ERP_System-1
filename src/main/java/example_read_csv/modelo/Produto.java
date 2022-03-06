@@ -1,6 +1,6 @@
 package example_read_csv.modelo;
 
-public class produto{
+public class Produto {
 //teste
 	private int id;											//atributos do mesmo tipo que o dados do .csv
 	private Double preço;
@@ -8,7 +8,7 @@ public class produto{
 	private int quant;
 	private String data;
 
-	public produto(int id, Double preço,String nome,String data,int quant) {		//construtor facilita a criaçao com a passagem dos dados
+	public Produto(int id, Double preço, String nome, String data, int quant) {		//construtor facilita a criaçao com a passagem dos dados
 		super();
 		this.id = id;
 		this.preço = preço;
