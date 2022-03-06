@@ -1,4 +1,4 @@
-package example_read_csv;
+package example_read_csv.modelo;
 
 public class produto{
 //teste

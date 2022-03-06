@@ -1,4 +1,7 @@
-package example_read_csv;
+package example_read_csv.main;
+
+import example_read_csv.modelo.produto;
+import example_read_csv.metodos.retornaLista;
 
 import java.util.ArrayList;
 import java.util.Collections;

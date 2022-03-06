@@ -1,4 +1,6 @@
-package example_read_csv;
+package example_read_csv.metodos;
+
+import example_read_csv.modelo.produto;
 
 import java.util.List;
 import java.util.Scanner;
