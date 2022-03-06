@@ -22,10 +22,10 @@ public class retornaLista {
 				String nome = produtos[21];
 				
 				String data = produtos[14].substring(0, 10).trim();          //F5 
-				produto prod = new produto(id, preço, nome, data); 			//passa como parementro as info do vetor instanciando o produto
 				int quant = (int)( Math.random()*98)+1;						//F5
-				prod.setQuant(quant);										//F5
-				
+
+				produto prod = new produto(id, preço, nome, data, quant); 			//passa como parementro as info do vetor instanciando o produto
+	
 				lista.add(prod); 										//preenche a lista com o produto
 				
 				linha = buf.readLine();									//le a proxima linha do arquivo

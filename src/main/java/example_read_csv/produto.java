@@ -8,12 +8,13 @@ public class produto{
 	private int quant;
 	private String data;
 
-	public produto(int id, Double preço,String nome,String data) {		//construtor facilita a criaçao com a passagem dos dados
+	public produto(int id, Double preço,String nome,String data,int quant) {		//construtor facilita a criaçao com a passagem dos dados
 		super();
 		this.id = id;
 		this.preço = preço;
 		this.data = data;
 		this.nome = nome;
+		this.quant = quant;
 	}
 
 	public String getData() {
@@ -28,9 +29,6 @@ public class produto{
 		return quant;
 	}
 
-	public void setQuant(int quant) {
-		this.quant = quant;
-	}
 
 	public String getNome() {								//retorna o nome para ser utilizado em funcionalidades
 		return nome;

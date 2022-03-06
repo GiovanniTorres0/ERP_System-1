@@ -31,11 +31,6 @@ public class retiraPorID {
                     minhaFila.add(prod);
                 }
             }
-            System.out.println(id);                                 // mostro pra ter certeza dos ids
-        }
-
-        for (produto fila : minhaFila) {                            // mostro a fila pra saber de qual id tirar
-            System.out.println(fila);
         }
 
         boolean avancar = true;
@@ -95,29 +90,16 @@ public class retiraPorID {
                 }
             }
         }
-
+        //remover o produto apenas so da fila e so se o a quantidade for 0
         for (produto prod : lista) {
-            if (prod.getQuant() == 0 && prod.getId() == id) {
+            if (prod.getQuant() == 0) {
                 minhaFila.remove();
             } 
         }
-        //remover o produto apenas so da fila e so se o a quantidade for 0
-        
-        for (produto fila : minhaFila) { // separo a FILA por produtos
+        /*
+        for (produto fila : minhaFila) { 
             System.out.println(fila);
         } 
-       
-        /*
-         * for (int index = 0; index < minhaFila.size(); index++) {
-         * if(((produto) minhaFila).getQuant() == 0){
-         * minhaFila.remove();
-         * }
-         * }
-         * for (produto fila : lista) {
-         * if(fila.getQuant() == 0){
-         * lista.remove(id-1);
-         * break;
-         * }
-         */
+        */
     }
 }
