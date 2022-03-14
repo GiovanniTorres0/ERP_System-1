@@ -13,13 +13,14 @@ public class Menu {
             System.out.println("Lista Vazia");
         } else {
             System.out.println("\tBem vindo ao Gerenciador de Produtos Eletronicos");
-
+            menuService.Fila();
 
             do {
 
                 System.out.println("\n1 - Buscar produto por código");
                 System.out.println("2 - Buscar produto por nome");
-                System.out.println("3- Sair");
+                System.out.println("3 - Buscar produto por nome");
+                System.out.println("4- Sair");
                 System.out.print("Opção: ");
 
                 switch (opcao) {
@@ -30,6 +31,7 @@ public class Menu {
                         menuService.buscarNome();
                         break;
                     case 3:
+                        menuService.retirarProduto();
                         break;
                     case 4:
                         break;
@@ -39,7 +41,7 @@ public class Menu {
                 }
 
 
-            } while (opcao != 3);
+            } while (opcao != 9);
 
 
         }

@@ -13,6 +13,7 @@ public class MenuService {
 
     private List<Produto> lista = retornaCSV.RetornaCSV();
     private Queue<Produto> minhaFila = new LinkedList<Produto>();
+    private Queue<Produto> filaCerta = new LinkedList<Produto>();
 
     public List<Produto> getLista() {
         return lista;
@@ -56,14 +57,14 @@ public class MenuService {
             System.out.println("Utilize numeros!");
         }
         if (!avancar) {                                            // inicia a pesquisa se estiver tudo certo
-            boolean enrepeterado = false;                          // variavel de repeterole para n avançar caso o id n exista
+            boolean encontrado = false;                          // variavel de repeterole para n avançar caso o id n exista
 
             for (Produto fila : minhaFila) {                       // separo a FILA por produtos
                 if (fila.getId() == id) {                          // comparo o id da que a pessoa digitou com o produto por meio do getId
-                    enrepeterado = true;
+                    encontrado = true;
                 }
             }
-            if (!enrepeterado) {                                            // retorna uma mensagem caso nao ache o produto
+            if (!encontrado) {                                            // retorna uma mensagem caso nao ache o produto
                 System.out.println("Produto não Encontrado!");
             } else {
                 int quant = 0;
@@ -101,6 +102,21 @@ public class MenuService {
                 }
             }
         }
+        //remover o produto apenas so da fila e so se o a quantidade for 0
+        for (Produto prod : minhaFila) {
+            if (prod.getQuant() != 0) {
+                filaCerta.add(prod);    //
+            }else{
+                System.out.println(prod); //mostra o produto removido
+            }
+        }
+        minhaFila.clear();
+        System.out.println("|||||||||");
+        minhaFila.addAll(filaCerta);
+        
+        for (Produto fila : minhaFila) { 
+            System.out.println(fila);
+        } 
 
     }
 
