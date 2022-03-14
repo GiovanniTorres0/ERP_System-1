@@ -48,6 +48,7 @@ public class MenuService {
 
     public void retirarProduto() {
         boolean avancar = true;
+
         int id = 0;
         System.out.print("\nDigite o ID do produto: ");
         try {
@@ -77,7 +78,7 @@ public class MenuService {
                 }
                 for (Produto fila : minhaFila) {                            // separo a fila por produtos
                     if (fila.getId() == id) {                               // comparo o id da que a pessoa digitou com o produto por meio do getId
-                        if (fila.retiraitem(quant) == true) {               // utilizo o metodo retiraitem() pra saber se foi retirado
+                        if (fila.retiraitem(quant)) {               // utilizo o metodo retiraitem() pra saber se foi retirado
                             System.out.println("Produto Retitrado com Sucesso!");
                         } else {
                             boolean repete = false;
@@ -108,16 +109,18 @@ public class MenuService {
                 filaCerta.add(prod);    //
             }else{
                 System.out.println(prod); //mostra o produto removido
+
             }
+
         }
         minhaFila.clear();
         System.out.println("|||||||||");
         minhaFila.addAll(filaCerta);
-        
+
         for (Produto fila : minhaFila) { 
             System.out.println(fila);
-        } 
-
+        }
+        minhaFila.clear();
     }
 
 
