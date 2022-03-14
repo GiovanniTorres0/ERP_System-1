@@ -8,7 +8,7 @@ public class Example {
 
        Menu menu = new Menu();
 
-       menu.menu(3);
+       menu.menu();
 
 
 
