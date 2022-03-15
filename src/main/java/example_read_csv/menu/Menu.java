@@ -20,11 +20,11 @@ public class Menu {
             System.out.println("\tBem vindo ao Gerenciador de Produtos Eletronicos");
 
             do {
-            System.out.println("\n1 - Buscar produto por código");
-            System.out.println("2 - Buscar produto por nome");
-            System.out.println("3 - Buscar produto por nome");
-            System.out.println("4- Sair");
-            System.out.print("Opção: ");
+                System.out.println("\n1 - Buscar produto por código");
+                System.out.println("2 - Buscar produto por nome");
+                System.out.println("3 - Retirar Produtos por Código.");
+                System.out.println("4- Sair");
+                System.out.print("Opção: ");
                 opcao = ler.nextInt();
 
 
