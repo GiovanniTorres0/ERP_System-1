@@ -47,6 +47,7 @@ public class MenuService {
 
 
     public void retirarProduto() {
+    
         boolean avancar = true;
 
         int id = 0;
@@ -84,7 +85,7 @@ public class MenuService {
                             boolean repete = false;
                             while (!repete) {
                                 System.out.println("Deseja retirar a quantidade Disponivel: " + fila.getQuant() + " ? [SIM] ou [NAO]");     // nao conseguiu retirar pq a quant n foi suficiente        // caso entre no else é pq o metodo retornou false pois
-                                String res = new Scanner(System.in).nextLine(); // guardo o que a resposta
+                                String res = new Scanner(System.in).nextLine().toUpperCase(); // guardo o que a resposta
 
                                 if (res.equals("SIM")) {
                                     fila.retiraitem(fila.getQuant());
@@ -104,26 +105,54 @@ public class MenuService {
             }
         }
         //remover o produto apenas so da fila e so se o a quantidade for 0
+        
+        
+    }
+    public void filaAtt(){
+
+        List<String> prods = new ArrayList<String>();
         for (Produto prod : minhaFila) {
-            if (prod.getQuant() != 0) {
-                filaCerta.add(prod);    //
+            if (prod.getQuant() > 0) {
+                prods.add(" " + prod.getId()); // coloco a data dentro da lista junto com o id
             }else{
-                System.out.println(prod); //mostra o produto removido
-
+                System.out.println(prod);
             }
-
         }
         minhaFila.clear();
-        System.out.println("|||||||||");
-        minhaFila.addAll(filaCerta);
 
-        for (Produto fila : minhaFila) { 
+        for (String i : prods) {
+            int tamanho = i.length();
+            int id = Integer.parseInt(i.substring(1, tamanho)); // pego o id data
+            for (Produto prod : lista) {
+                if (prod.getId() == id) { // acho os produtos com os mesmos ids e coloco dentro da fila
+                    minhaFila.add(prod);
+                }
+            }
+        }
+        System.out.println("||||||||||||||||||||");
+        for (Produto fila : minhaFila) {
             System.out.println(fila);
         }
-        minhaFila.clear();
     }
+    public void Fila() {
+        List<String> itens = new ArrayList<String>();           // lista para por as datas dos porsutos
 
+        for (Produto prod : lista) {
+            itens.add(prod.getData() + " " + prod.getId());     // coloco a data dentro da lista junto com o id
+        }
 
+        Collections.sort(itens);                                // :))) ordeno as datas da lista
+
+        for (String i : itens) {
+            int tamanho = i.length();
+            int id = Integer.parseInt(i.substring(10, tamanho));    // pego o id data
+            for (Produto prod : lista) {
+                if (prod.getId() == id) {                           // acho os produtos com os mesmos ids e coloco dentro da fila
+                    minhaFila.add(prod);
+                }
+            }
+        }
+    }
     public void buscarNome() {
 
         boolean avancar = false;
@@ -142,28 +171,6 @@ public class MenuService {
         if (!avancar) {                         //pq um if em vez de else na linha 19 ? porque cada vez que ele nao encontra ira imprimir
             System.out.println("Produto não Encontrado!");
         }
-    }
-
-    public void Fila() {
-
-        List<String> itens = new ArrayList<String>();           // lista para por as datas dos porsutos
-
-        for (Produto prod : lista) {
-            itens.add(prod.getData() + " " + prod.getId());     // coloco a data dentro da lista junto com o id
-        }
-
-        Collections.sort(itens);                                // :))) ordeno as datas da lista
-
-        for (String i : itens) {
-            int tamanho = i.length();
-            int id = Integer.parseInt(i.substring(10, tamanho));    // pego o id data
-            for (Produto prod : lista) {
-                if (prod.getId() == id) {                           // acho os produtos com os mesmos ids e coloco dentro da fila
-                    minhaFila.add(prod);
-                }
-            }
-        }
-
     }
 
     public void RemovedaFila() {

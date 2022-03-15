@@ -10,21 +10,6 @@ public class Example {
 
        menu.menu();
 
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
