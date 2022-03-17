@@ -1,18 +1,20 @@
-package example_read_csv.service.menuService;
+package example_read_csv.service.menuServiceImp;
 
 import example_read_csv.config.RetornaCSV;
 import example_read_csv.modelo.Produto;
 
+import javax.management.BadAttributeValueExpException;
 import java.util.*;
 
 
-public class Service {
+public class MenuService {
 
 
     RetornaCSV retornaCSV = new RetornaCSV();
 
     private List<Produto> lista = retornaCSV.RetornaCSV();
     private Queue<Produto> minhaFila = new LinkedList<Produto>();
+    private Queue<Produto> filaCerta = new LinkedList<Produto>();
 
     public List<Produto> getLista() {
         return lista;
@@ -46,24 +48,27 @@ public class Service {
 
 
     public void retirarProduto() {
+    
         boolean avancar = true;
+
         int id = 0;
         System.out.print("\nDigite o ID do produto: ");
-        try {
-            id = new Scanner(System.in).nextInt();          //guardo o que a pessoa digitou
+
+            id = new Scanner(System.in).nextInt();  //guardo o que a pessoa digitou
+            if(id > 2147483647) {
+                throw new InputMismatchException();
+            }
             avancar = false;
-        } catch (InputMismatchException m) {
-            System.out.println("Utilize numeros!");
-        }
+
         if (!avancar) {                                            // inicia a pesquisa se estiver tudo certo
-            boolean enrepeterado = false;                          // variavel de repeterole para n avançar caso o id n exista
+            boolean encontrado = false;                          // variavel de repeterole para n avançar caso o id n exista
 
             for (Produto fila : minhaFila) {                       // separo a FILA por produtos
                 if (fila.getId() == id) {                          // comparo o id da que a pessoa digitou com o produto por meio do getId
-                    enrepeterado = true;
+                    encontrado = true;
                 }
             }
-            if (!enrepeterado) {                                            // retorna uma mensagem caso nao ache o produto
+            if (!encontrado) {                                            // retorna uma mensagem caso nao ache o produto
                 System.out.println("Produto não Encontrado!");
             } else {
                 int quant = 0;
@@ -76,13 +81,13 @@ public class Service {
                 }
                 for (Produto fila : minhaFila) {                            // separo a fila por produtos
                     if (fila.getId() == id) {                               // comparo o id da que a pessoa digitou com o produto por meio do getId
-                        if (fila.retiraitem(quant) == true) {               // utilizo o metodo retiraitem() pra saber se foi retirado
+                        if (fila.retiraitem(quant)) {               // utilizo o metodo retiraitem() pra saber se foi retirado
                             System.out.println("Produto Retitrado com Sucesso!");
                         } else {
                             boolean repete = false;
                             while (!repete) {
                                 System.out.println("Deseja retirar a quantidade Disponivel: " + fila.getQuant() + " ? [SIM] ou [NAO]");     // nao conseguiu retirar pq a quant n foi suficiente        // caso entre no else é pq o metodo retornou false pois
-                                String res = new Scanner(System.in).nextLine(); // guardo o que a resposta
+                                String res = new Scanner(System.in).nextLine().toUpperCase(); // guardo o que a resposta
 
                                 if (res.equals("SIM")) {
                                     fila.retiraitem(fila.getQuant());
@@ -101,8 +106,55 @@ public class Service {
                 }
             }
         }
+        //remover o produto apenas so da fila e so se o a quantidade for 0
+        
+        
     }
+    public void filaAtt(){
 
+        List<String> prods = new ArrayList<String>();
+        for (Produto prod : minhaFila) {
+            if (prod.getQuant() > 0) {
+                prods.add(" " + prod.getId()); // coloco a data dentro da lista junto com o id
+            }else{
+                System.out.println(prod);
+            }
+        }
+        minhaFila.clear();
+
+        for (String i : prods) {
+            int tamanho = i.length();
+            int id = Integer.parseInt(i.substring(1, tamanho)); // pego o id data
+            for (Produto prod : lista) {
+                if (prod.getId() == id) { // acho os produtos com os mesmos ids e coloco dentro da fila
+                    minhaFila.add(prod);
+                }
+            }
+        }
+        System.out.println("||||||||||||||||||||");
+        for (Produto fila : minhaFila) {
+            System.out.println(fila);
+        }
+    }
+    public void Fila() {
+        List<String> itens = new ArrayList<String>();           // lista para por as datas dos porsutos
+
+        for (Produto prod : lista) {
+            itens.add(prod.getData() + " " + prod.getId());     // coloco a data dentro da lista junto com o id
+        }
+
+        Collections.sort(itens);                                // :))) ordeno as datas da lista
+
+        for (String i : itens) {
+            int tamanho = i.length();
+            int id = Integer.parseInt(i.substring(10, tamanho));    // pego o id data
+            for (Produto prod : lista) {
+                if (prod.getId() == id) {                           // acho os produtos com os mesmos ids e coloco dentro da fila
+                    minhaFila.add(prod);
+                }
+            }
+        }
+    }
     public void buscarNome() {
 
         boolean avancar = false;
@@ -123,28 +175,6 @@ public class Service {
         }
     }
 
-    public void Fila() {
-
-        List<String> itens = new ArrayList<String>();           // lista para por as datas dos porsutos
-
-        for (Produto prod : lista) {
-            itens.add(prod.getData() + " " + prod.getId());     // coloco a data dentro da lista junto com o id
-        }
-
-        Collections.sort(itens);                                // :))) ordeno as datas da lista
-
-        for (String i : itens) {
-            int tamanho = i.length();
-            int id = Integer.parseInt(i.substring(10, tamanho));    // pego o id data
-            for (Produto prod : lista) {
-                if (prod.getId() == id) {                           // acho os produtos com os mesmos ids e coloco dentro da fila
-                    minhaFila.add(prod);
-                }
-            }
-        }
-
-    }
-
     public void RemovedaFila() {
         //remover o produto apenas so da fila e so se o a quantidade for 0
         for (Produto prod : lista) {
@@ -154,6 +184,4 @@ public class Service {
         }
 
     }
-
-
 }
