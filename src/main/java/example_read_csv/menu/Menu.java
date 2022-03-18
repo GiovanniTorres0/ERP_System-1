@@ -1,8 +1,8 @@
 package example_read_csv.menu;
 
-import example_read_csv.service.menuServiceImp.MenuService;
-
 import java.util.Scanner;
+
+import example_read_csv.service.menuService.MenuService;
 
 public class Menu {
 

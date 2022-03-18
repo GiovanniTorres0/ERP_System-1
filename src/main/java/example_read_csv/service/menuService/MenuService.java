@@ -1,9 +1,8 @@
-package example_read_csv.service.menuServiceImp;
+package example_read_csv.service.menuService;
 
 import example_read_csv.config.RetornaCSV;
 import example_read_csv.modelo.Produto;
 
-import javax.management.BadAttributeValueExpException;
 import java.util.*;
 
 
@@ -14,7 +13,6 @@ public class MenuService {
 
     private List<Produto> lista = retornaCSV.RetornaCSV();
     private Queue<Produto> minhaFila = new LinkedList<Produto>();
-    private Queue<Produto> filaCerta = new LinkedList<Produto>();
 
     public List<Produto> getLista() {
         return lista;
@@ -106,9 +104,6 @@ public class MenuService {
                 }
             }
         }
-        //remover o produto apenas so da fila e so se o a quantidade for 0
-        
-        
     }
     public void filaAtt(){
 
@@ -130,10 +125,6 @@ public class MenuService {
                     minhaFila.add(prod);
                 }
             }
-        }
-        System.out.println("||||||||||||||||||||");
-        for (Produto fila : minhaFila) {
-            System.out.println(fila);
         }
     }
     public void Fila() {
@@ -173,15 +164,5 @@ public class MenuService {
         if (!avancar) {                         //pq um if em vez de else na linha 19 ? porque cada vez que ele nao encontra ira imprimir
             System.out.println("Produto não Encontrado!");
         }
-    }
-
-    public void RemovedaFila() {
-        //remover o produto apenas so da fila e so se o a quantidade for 0
-        for (Produto prod : lista) {
-            if (prod.getQuant() == 0) {
-                minhaFila.remove();
-            }
-        }
-
     }
 }

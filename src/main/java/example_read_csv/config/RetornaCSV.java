@@ -10,7 +10,6 @@ import java.util.List;
 
 public class RetornaCSV {
 
-
     public List<Produto> RetornaCSV() {
         List<Produto> lista = new ArrayList<Produto>();
         //testes de pra ver se fica acessivel em todas as class
