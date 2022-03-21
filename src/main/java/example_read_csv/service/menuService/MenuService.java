@@ -170,10 +170,7 @@ public class MenuService {
         for (int i = 0 ; i < lista.size(); i++) {
             ids[i] = lista.get(i).getId();
         }
-        /*
-        for (int index = 0; index < ids.length; index++) {
-            System.out.println(ids[index]);
-        }*/
+
         boolean avancar = true;
         int id = 0;
         int inicio = 0 , fim = ids.length-1;
@@ -187,22 +184,27 @@ public class MenuService {
             System.out.println("Utilize numeros!");
         }
         boolean encontrado = false;
-      
-        while (inicio <= fim) {
-            meio = (inicio + fim ) /2;
-            if(id == meio){
-                System.out.println(lista.get(id));
-                encontrado = true;
-            }
-            if(id < meio){
-                fim = meio - 1;
-            }else{
-                inicio = meio + 1; 
-            }
-        } 
-        if (!encontrado) {
-            System.out.println("N enc");
+
+        if (!avancar) {
+            while (inicio <= fim) {
+                meio = (inicio + fim ) /2;
+                if(id == ids[meio]){
+                    System.out.println(lista.get(id));
+                    encontrado = true;
+                }
+                if(id < ids[meio]){
+                    fim = meio - 1;
+                }else{
+                    inicio = meio + 1; 
+                }
+            } 
+            if (!encontrado) {
+                System.out.println("N enc");
+            }  
+        }else{
+            System.out.println("Digite Numeros");
         }
+       
     }
     public void array(){
         int ids [] = new int[lista.size()];
