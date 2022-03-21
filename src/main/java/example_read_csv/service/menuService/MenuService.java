@@ -110,7 +110,7 @@ public class MenuService {
         List<String> prods = new ArrayList<String>();
         for (Produto prod : minhaFila) {
             if (prod.getQuant() > 0) {
-                prods.add(" " + prod.getId()); // coloco a data dentro da lista junto com o id
+                prods.add(" " + prod.getId()); 
             }else{
                 System.out.println(prod);
             }
@@ -163,6 +163,54 @@ public class MenuService {
         }
         if (!avancar) {                         //pq um if em vez de else na linha 19 ? porque cada vez que ele nao encontra ira imprimir
             System.out.println("Produto não Encontrado!");
+        }
+    }
+    public void verificacaoBinaria(){
+        int ids [] = new int[lista.size()];
+        for (int i = 0 ; i < lista.size(); i++) {
+            ids[i] = lista.get(i).getId();
+        }
+        /*
+        for (int index = 0; index < ids.length; index++) {
+            System.out.println(ids[index]);
+        }*/
+        boolean avancar = true;
+        int id = 0;
+        int inicio = 0 , fim = ids.length-1;
+        int meio ;
+        System.out.print("\nDigite o ID do produto: ");
+
+        try {
+            id = new Scanner(System.in).nextInt();         
+            avancar = false;
+        } catch (InputMismatchException m) {
+            System.out.println("Utilize numeros!");
+        }
+        boolean encontrado = false;
+      
+        while (inicio <= fim) {
+            meio = (inicio + fim ) /2;
+            if(id == meio){
+                System.out.println(lista.get(id));
+                encontrado = true;
+            }
+            if(id < meio){
+                fim = meio - 1;
+            }else{
+                inicio = meio + 1; 
+            }
+        } 
+        if (!encontrado) {
+            System.out.println("N enc");
+        }
+    }
+    public void array(){
+        int ids [] = new int[lista.size()];
+        for (int i = 0 ; i < lista.size(); i++) {
+            ids[i] = lista.get(i).getId();
+        }
+        for (int index = 0; index < ids.length; index++) {
+            System.out.println(ids[index]);
         }
     }
 }

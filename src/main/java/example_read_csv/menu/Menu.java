@@ -40,7 +40,9 @@ public class Menu {
                         menuService.filaAtt();
                         break;
                     case 4:
-                    
+                
+                     menuService. verificacaoBinaria();
+              
                         break;
                     default:
                         break;
