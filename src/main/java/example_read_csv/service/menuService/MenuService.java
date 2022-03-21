@@ -189,7 +189,7 @@ public class MenuService {
             while (inicio <= fim) {
                 meio = (inicio + fim ) /2;
                 if(id == ids[meio]){
-                    System.out.println(lista.get(id));
+                    System.out.println(lista.get(id-1));
                     encontrado = true;
                 }
                 if(id < ids[meio]){
@@ -206,13 +206,5 @@ public class MenuService {
         }
        
     }
-    public void array(){
-        int ids [] = new int[lista.size()];
-        for (int i = 0 ; i < lista.size(); i++) {
-            ids[i] = lista.get(i).getId();
-        }
-        for (int index = 0; index < ids.length; index++) {
-            System.out.println(ids[index]);
-        }
-    }
+
 }

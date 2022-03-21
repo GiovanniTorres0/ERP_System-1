@@ -11,19 +11,20 @@ public class Menu {
     Scanner ler = new Scanner(System.in);
 
     public void menu() {
-        int opcao =0;
+        int opcao = 0;
         menuService.Fila();
         if (menuService.getLista().isEmpty()) {    // carrega as info na lista caso contrario nao funciona
             System.out.println("Lista Vazia");
         } else {
-            
+
             System.out.println("\tBem vindo ao Gerenciador de Produtos Eletronicos");
 
             do {
                 System.out.println("\n1 - Buscar produto por código");
                 System.out.println("2 - Buscar produto por nome");
                 System.out.println("3 - Retirar Produtos por Código.");
-                System.out.println("4- Sair");
+                System.out.println("4 - Busca Binaria");
+                System.out.println("5 - Fim");
                 System.out.print("Opção: ");
                 opcao = ler.nextInt();
 
@@ -40,16 +41,19 @@ public class Menu {
                         menuService.filaAtt();
                         break;
                     case 4:
-                
-                     menuService. verificacaoBinaria();
-              
+                        menuService.verificacaoBinaria();
+                        break;
+                    case 5:
+                        System.out.println("Programa Encerrado!!!");
+                        opcao = 5;
                         break;
                     default:
+                        System.out.println("Digite outro número de opção");
                         break;
 
                 }
 
-            } while (opcao != 9);
+            } while (opcao != 5);
 
 
         }
